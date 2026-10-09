@@ -1,0 +1,5 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="KARINA OS icon">
+  <rect width="128" height="128" rx="24" fill="#560B18"/>
+  <rect x="18" y="18" width="92" height="92" rx="22" fill="#F2E5C6"/>
+  <path d="M43 34h18v60H43zm24 0h18v60H67zm-24 24h60v18H43z" fill="#75162D"/>
+</svg>
