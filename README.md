@@ -9,6 +9,12 @@ npm install
 npm run dev
 ```
 
+### Usar o botão Go Live do VS Code
+
+O espaço de trabalho recomenda a extensão **Live Server** e configura o botão **Go Live** para abrir a versão compilada do site em `http://127.0.0.1:5500`. Ao abrir a pasta no VS Code, autorize a tarefa automática **Prepare site for Go Live**: ela compila o projeto e atualiza `dist` quando os arquivos-fonte mudarem. Depois, clique em **Go Live** na barra de status.
+
+O Live Server serve os arquivos de produção compilados do Vue; para desenvolvimento com atualização HMR, use `npm run dev` em `http://localhost:5173`.
+
 Para gerar a versão de produção:
 
 ```sh

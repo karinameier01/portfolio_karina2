@@ -29,17 +29,15 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 ::selection { color: var(--white); background: var(--burgundy); }
 
 .os-shell { position: relative; width: 100%; height: 100vh; min-height: 640px; overflow: hidden; background: var(--champagne); }
-.wallpaper-art { position: absolute; inset: 0; overflow: hidden; pointer-events: none; background: radial-gradient(ellipse at 84% 22%, rgba(242,217,160,.62), transparent 28%), linear-gradient(132deg, #F2E5C6, #F2E5C6 55%, rgba(242,217,160,.4)); }
-.wallpaper-art::before { position: absolute; inset: 0; content: ''; opacity: .27; background-image: linear-gradient(rgba(86,11,24,.11) 1px, transparent 1px), linear-gradient(90deg, rgba(86,11,24,.11) 1px, transparent 1px); background-size: 56px 56px; mask-image: linear-gradient(90deg, transparent 12%, #000 100%); }
+.wallpaper-art { position: absolute; inset: 0; overflow: hidden; pointer-events: none; background: radial-gradient(ellipse at 84% 22%, rgba(242,217,160,.62), transparent 28%), linear-gradient(132deg, #F2E5C6, #F2E5C6 55%, rgba(242,217,160,.4)); animation: wallpaper-glow 14s ease-in-out infinite alternate; }
+.wallpaper-art::before { position: absolute; inset: 0; content: ''; opacity: .27; background-image: linear-gradient(rgba(86,11,24,.11) 1px, transparent 1px), linear-gradient(90deg, rgba(86,11,24,.11) 1px, transparent 1px); background-size: 56px 56px; mask-image: linear-gradient(90deg, transparent 12%, #000 100%); animation: grid-drift 32s linear infinite; }
 .wallpaper-art::after { position: absolute; top: 0; right: 0; width: 40%; height: 100%; content: ''; background: linear-gradient(138deg, transparent 49.8%, rgba(117,22,45,.17) 50%, transparent 50.2%); }
-.wallpaper-orbit { position: absolute; z-index: 1; border: 1px solid rgba(117,22,45,.15); border-radius: 50%; transform: rotate(-31deg); }
+.wallpaper-orbit { position: absolute; z-index: 1; border: 1px solid rgba(117,22,45,.15); border-radius: 50%; transform: rotate(-31deg); animation: orbit-breathe 9s ease-in-out infinite alternate; }
 .orbit-one { top: 15%; right: -13%; width: 58vw; height: 24vw; }
-.orbit-two { top: 24%; right: -10%; width: 58vw; height: 24vw; }
-.wallpaper-stamp { position: absolute; right: 7.1%; bottom: 12%; z-index: 1; color: rgba(86,11,24,.3); font: 600 clamp(2.7rem, 7vw, 7rem)/.84 var(--display); letter-spacing: -.09em; text-align: right; }
-.wallpaper-stamp span { font: 400 .34em var(--mono); letter-spacing: .1em; }
+.orbit-two { top: 24%; right: -10%; width: 58vw; height: 24vw; animation-delay: -4.5s; }
 
 .desktop { position: relative; z-index: 1; width: 100%; height: 100%; padding: 38px 54px 74px; }
-.desktop-top { display: flex; position: relative; z-index: 1; align-items: flex-start; justify-content: space-between; }
+.desktop-top { display: flex; position: relative; z-index: 1; align-items: flex-start; justify-content: space-between; animation: rise-in .7s cubic-bezier(.2,.75,.25,1) both; }
 .system-label, .eyebrow { color: var(--burgundy); font: 500 10px/1.4 var(--mono); letter-spacing: .12em; }
 .system-label { display: flex; align-items: center; gap: 11px; color: var(--maroon); }
 .system-label i, .desktop-status i { width: 5px; height: 5px; border-radius: 50%; background: var(--burgundy); }
@@ -53,9 +51,15 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .external-mark { color: var(--burgundy); font-size: 13px; }
 
 .desktop-shortcuts { position: absolute; top: 195px; left: 51px; display: grid; z-index: 2; grid-template-columns: repeat(2, 88px); gap: 12px 10px; width: 186px; }
-.desktop-shortcut { display: flex; min-height: 94px; align-items: center; flex-direction: column; justify-content: flex-start; gap: 9px; padding: 6px 3px; border: 1px solid transparent; background: transparent; text-align: center; transition: background .18s, border-color .18s, transform .18s; }
-.desktop-shortcut:hover, .desktop-shortcut:focus-visible { transform: translateY(-2px); border-color: rgba(117,22,45,.16); background: rgba(255,255,255,.43); }
-.app-icon { display: grid; width: 45px; height: 45px; place-items: center; border: 1px solid rgba(86,11,24,.16); background: rgba(255,255,255,.72); color: var(--burgundy); box-shadow: 0 5px 12px rgba(86,11,24,.08); }
+.desktop-shortcut { display: flex; min-height: 94px; align-items: center; flex-direction: column; justify-content: flex-start; gap: 9px; padding: 6px 3px; border: 1px solid transparent; background: transparent; text-align: center; transition: background .22s, border-color .22s, transform .22s, box-shadow .22s; animation: shortcut-in .55s cubic-bezier(.2,.75,.25,1) both; }
+.desktop-shortcut:nth-child(2) { animation-delay: .06s; }
+.desktop-shortcut:nth-child(3) { animation-delay: .12s; }
+.desktop-shortcut:nth-child(4) { animation-delay: .18s; }
+.desktop-shortcut:nth-child(5) { animation-delay: .24s; }
+.desktop-shortcut:nth-child(6) { animation-delay: .3s; }
+.desktop-shortcut:hover, .desktop-shortcut:focus-visible { transform: translateY(-3px); border-color: rgba(117,22,45,.16); background: rgba(255,255,255,.52); box-shadow: 0 8px 20px rgba(86,11,24,.06); }
+.app-icon { display: grid; width: 45px; height: 45px; place-items: center; border: 1px solid rgba(86,11,24,.16); background: rgba(255,255,255,.72); color: var(--burgundy); box-shadow: 0 5px 12px rgba(86,11,24,.08); transition: transform .25s cubic-bezier(.2,.75,.25,1), box-shadow .25s; }
+.desktop-shortcut:hover .app-icon { transform: translateY(-2px) scale(1.06); box-shadow: 0 9px 18px rgba(86,11,24,.14); }
 .app-icon svg { width: 27px; height: 27px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.55; }
 .icon-folder { background: var(--sand); color: var(--wine); }
 .icon-code, .icon-terminal { color: var(--white); background: var(--burgundy); }
@@ -66,7 +70,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 
 .window-layer { position: absolute; z-index: 3; inset: 0 0 58px; pointer-events: none; }
 .app-window { position: absolute; display: flex; width: min(690px, calc(100vw - 290px)); min-width: 390px; height: min(590px, calc(100vh - 155px)); min-height: 360px; flex-direction: column; overflow: hidden; border: 1px solid rgba(59,1,11,.36); background: var(--white); box-shadow: 0 24px 65px rgba(59,1,11,.2), 0 3px 10px rgba(59,1,11,.1); pointer-events: auto; resize: both; }
-.app-window.active { box-shadow: 0 27px 70px rgba(59,1,11,.27), 0 0 0 1px rgba(117,22,45,.3); }
+.app-window.active { box-shadow: 0 27px 70px rgba(59,1,11,.27), 0 0 0 1px rgba(117,22,45,.3); animation: window-focus .3s ease-out both; }
 .app-window.maximized { inset: 12px 14px 12px 14px !important; width: auto !important; height: auto !important; min-width: 0; min-height: 0; resize: none; }
 .window-titlebar { display: flex; min-height: 43px; flex: 0 0 43px; align-items: center; justify-content: space-between; gap: 10px; padding: 0 12px 0 15px; background: var(--maroon); color: var(--white); user-select: none; cursor: grab; }
 .window-titlebar:active { cursor: grabbing; }
@@ -248,8 +252,15 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .menu-social { display: flex; gap: 14px; padding: 12px 16px; border-top: 1px solid var(--hairline); }
 .menu-social a { color: var(--burgundy); font-size: 9px; font-weight: 600; text-decoration: none; }
 .menu-social a:hover { color: var(--wine); }
-.desktop-status { position: absolute; bottom: 72px; left: 24px; display: flex; align-items: center; gap: 9px; color: rgba(86,11,24,.56); font: 9px var(--mono); letter-spacing: .08em; }
+.desktop-status { position: absolute; bottom: 72px; left: 24px; display: flex; align-items: center; gap: 9px; color: rgba(86,11,24,.56); font: 9px var(--mono); letter-spacing: .08em; animation: rise-in .8s .3s both; }
 .desktop-status i { width: 4px; height: 4px; }
+
+@keyframes rise-in { from { opacity: 0; transform: translateY(9px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes shortcut-in { from { opacity: 0; filter: blur(3px); } to { opacity: 1; filter: blur(0); } }
+@keyframes window-focus { from { opacity: .86; scale: .99; } to { opacity: 1; scale: 1; } }
+@keyframes wallpaper-glow { from { background-position: 0 0, 0 0; } to { background-position: 2% 4%, 0 0; } }
+@keyframes grid-drift { from { background-position: 0 0, 0 0; } to { background-position: 56px 56px, 56px 56px; } }
+@keyframes orbit-breathe { from { translate: 0 0; scale: 1; opacity: .65; } to { translate: -8px 7px; scale: 1.025; opacity: 1; } }
 
 @media (max-width: 900px) and (min-width: 761px) {
   .desktop { padding-right: 28px; padding-left: 30px; }
@@ -266,7 +277,6 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
   .os-shell { height: 100dvh; min-height: 520px; }
   .wallpaper-art::before { background-size: 38px 38px; }
   .wallpaper-art::after { width: 100%; }
-  .wallpaper-stamp { right: 5%; bottom: 15%; font-size: 22vw; opacity: .55; }
   .orbit-one { top: 22%; right: -66%; width: 120vw; height: 48vw; }
   .orbit-two { top: 26%; right: -66%; width: 120vw; height: 48vw; }
   .desktop { padding: 22px 18px 67px; }
@@ -295,8 +305,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
   .app-intro { padding: 0; }
   .app-intro h2, .contact-intro h2 { margin: 13px 0 11px; font-size: 26px; }
   .app-intro > p { font-size: 11px; line-height: 1.7; }
-  .about-aside { display: grid; min-height: auto; grid-template-columns: 40px 1fr; align-items: center; gap: 2px 12px; padding: 12px; }
-  .profile-monogram { grid-row: 1 / 4; margin: 0; font-size: 25px; }
+  .about-aside { display: grid; min-height: auto; grid-template-columns: minmax(0, 1fr); align-items: start; gap: 5px; padding: 12px; }
+  .profile-monogram { grid-row: auto; width: 100%; margin: 0 0 4px; font-size: clamp(19px, 6vw, 25px); line-height: 1.1; letter-spacing: -.05em; overflow-wrap: anywhere; }
   .aside-label { font-size: 8px; }
   .about-aside strong { margin: 1px 0; font-size: 11px; }
   .aside-school { font-size: 9px; }
@@ -372,6 +382,15 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
   .tray-clock { min-width: 49px; }
   .tray-clock b { font-size: 9px; }
   .contact-content { padding-right: 15px; padding-left: 15px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
 }
 
 @media print {

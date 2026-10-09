@@ -25,7 +25,7 @@ const contactForm = ref({ name: '', email: '', message: '' })
 const contactFeedback = ref('')
 const terminalInput = ref('')
 const terminalLines = ref([
-  { type: 'system', text: 'KM-OS Terminal 2.6 — ambiente interativo' },
+  { type: 'system', text: 'KM Terminal 2.6 — ambiente interativo' },
   { type: 'system', text: 'Digite help para consultar os comandos disponíveis.' },
 ])
 const terminalOutput = ref(null)
@@ -197,14 +197,13 @@ onBeforeUnmount(() => {
     <div class="wallpaper-art" aria-hidden="true">
       <div class="wallpaper-orbit orbit-one"></div>
       <div class="wallpaper-orbit orbit-two"></div>
-      <div class="wallpaper-stamp">KM-OS<br><span>v2.6</span></div>
     </div>
 
-    <main class="desktop" aria-label="Área de trabalho KM-OS">
+    <main class="desktop" aria-label="Área de trabalho de Karina Meier">
       <header class="desktop-top">
         <div class="identity">
-          <span class="system-label">MEIER OPERATING SYSTEM <i></i> SESSION 2026</span>
-          <h1>Olá, eu sou <span>Karina.</span></h1>
+          <span class="system-label">PORTFÓLIO DIGITAL <i></i> JOINVILLE — SC</span>
+          <h1>Olá, eu sou a <span>Karina.</span></h1>
           <p>Estudante de tecnologia <b>/</b> Desenvolvedora em formação</p>
         </div>
         <a class="profile-link" :href="github" target="_blank" rel="noreferrer" aria-label="Abrir GitHub de Karina">
@@ -243,7 +242,7 @@ onBeforeUnmount(() => {
               <span class="title-app-icon">{{ app.icon === 'terminal' ? '>_' : app.icon === 'folder' ? 'F' : app.icon === 'mail' ? '@' : app.icon === 'document' ? 'PDF' : app.icon === 'code' ? '</>' : 'KM' }}</span>
               <span>{{ app.name }}</span>
               <span class="title-divider">/</span>
-              <span class="title-caption">KM-OS APPLICATION</span>
+              <span class="title-caption">KARINA MEIER</span>
             </div>
             <div class="window-controls">
               <button type="button" aria-label="Minimizar janela" title="Minimizar" @click.stop="minimizeApp(app.id)"><span class="minimize-symbol"></span></button>
@@ -256,12 +255,12 @@ onBeforeUnmount(() => {
             <div class="app-intro">
               <div class="eyebrow">PERFIL DE ESTUDANTE <span>01 / 06</span></div>
               <h2>Tecnologia com curiosidade,<br><em>aprendizado com propósito.</em></h2>
-              <p>Sou Karina Meier, estudante de Técnico em Informática para Internet no SENAC, em Joinville — SC. Estou construindo minha trajetória por meio da formação técnica, projetos e experiências de aprendizagem.</p>
+              <p>Sou a Karina Meier, estudante de Técnico em Informática para Internet no SENAC, em Joinville — SC. Estou construindo minha trajetória por meio da formação técnica, projetos e experiências de aprendizagem.</p>
               <p>Busco uma oportunidade de estágio em tecnologia para aprofundar meus conhecimentos, colaborar com uma equipe e crescer na área de desenvolvimento.</p>
               <button class="text-action" type="button" @click="openApp('contact')">Vamos conversar <span>→</span></button>
             </div>
             <aside class="about-aside">
-              <div class="profile-monogram">KM<span>.</span></div>
+              <div class="profile-monogram">KARINA MEIER<span>.</span></div>
               <span class="aside-label">FORMAÇÃO ATUAL</span>
               <strong>Técnico em Informática<br>para Internet</strong>
               <span class="aside-school">SENAC · 2024 — 2026</span>
@@ -307,7 +306,7 @@ onBeforeUnmount(() => {
 
           <div v-else-if="app.id === 'resume'" class="window-content resume-content">
             <div class="resume-paper">
-              <div class="resume-topline"><span>KM / CURRÍCULO</span><span>JOINVILLE — SC</span></div>
+              <div class="resume-topline"><span>KARINA MEIER / CURRÍCULO</span><span>JOINVILLE — SC</span></div>
               <div class="resume-name"><div><span class="eyebrow">ESTUDANTE DE TECNOLOGIA</span><h2>Karina Meier</h2></div><span class="resume-initials">KM</span></div>
               <div class="resume-section"><h3>FORMAÇÃO</h3><div class="resume-entry"><b>Técnico em Informática para Internet</b><span>SENAC · 2024 — 2026</span><p>Previsão de conclusão: dezembro de 2026.</p></div></div>
               <div class="resume-section"><h3>CURSOS · SENAI</h3><ul><li v-for="course in courses" :key="course">{{ course }}</li></ul></div>
@@ -363,12 +362,12 @@ onBeforeUnmount(() => {
       </footer>
 
       <aside v-if="startMenuOpen" class="start-menu" aria-label="Menu Início" @pointerdown.stop>
-        <div class="menu-brand"><span class="km-mark">KM</span><div><b>KM-OS</b><small>Karina Meier · 2.6</small></div></div>
+        <div class="menu-brand"><span class="km-mark">KM</span><div><b>KM</b><small>Karina Meier · 2.6</small></div></div>
         <div class="menu-profile"><span>PERFIL DO SISTEMA</span><b>Estudante de tecnologia</b><small>Joinville — SC · 2024–2026</small></div>
         <div class="menu-app-list"><span class="menu-section-label">APLICATIVOS</span><button v-for="app in apps" :key="app.id" type="button" @click="openApp(app.id)"><span class="menu-icon">{{ app.icon === 'terminal' ? '>_' : app.icon === 'folder' ? 'F' : app.icon === 'mail' ? '@' : app.icon === 'document' ? 'PDF' : app.icon === 'code' ? '</>' : 'KM' }}</span>{{ app.name }}<span class="menu-open">Abrir</span></button></div>
         <div class="menu-social"><a :href="github" target="_blank" rel="noreferrer">GitHub ↗</a><a :href="linkedIn" target="_blank" rel="noreferrer">LinkedIn ↗</a><a :href="`mailto:${email}`">E-mail ↗</a></div>
       </aside>
-      <div class="desktop-status"><span>KM-OS v2.6</span><i></i><span>ESTUDANTE DE TECNOLOGIA</span></div>
+      <div class="desktop-status"><i></i><span>ESTUDANTE DE TECNOLOGIA</span></div>
     </main>
   </div>
 </template>
